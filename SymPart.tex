@@ -1,0 +1,696 @@
+\documentclass[11pt]{amsart}
+\usepackage{pdfsync}
+\usepackage{amsmath,amssymb}
+
+\newcommand{\Beta}{\mathcal B}
+
+\newcommand{\ars}{\rightarrowtail}
+\newcommand{\On}{\mathrm{ON}}
+\newcommand{\OF}{\mathrm{ON}^\om}
+\newcommand{\la}{{\langle}}
+\newcommand{\ra}{{\rangle}}
+\newcommand{\tcf}{\operatorname{tcf}}
+\newcommand{\diag}{\mathbf{\Delta}}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\renewcommand{\l}{\lambda}
+\renewcommand{\k}{\kappa}
+\newcommand{\ov}{\overline}
+\renewcommand{\d}{\delta}
+ \newcommand{\nat}{{\om}}
+\newcommand{\rzecz}{{\mathbb R}}
+\newcommand{\baire}{{\mathcal B}}
+\newcommand{\conc}{\mathbin{\^{\hskip8pt}}}
+\newcommand{\imply}{\Longrightarrow}
+ \newcommand{\N}{\mathbb N}
+\newcommand{\rng}{\rangle}
+\newcommand{\lng}{\langle}
+\newcommand{\rest}{\restriction}
+\newcommand{\sm}{\setminus}
+\newcommand{\om}{\omega}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\su}{\subseteq}
+\newcommand{\cl}{{\rm cl}}
+\newcommand{\Ba}{{\rm Ba}}
+\newcommand{\Bo}{{\rm Bo}}
+\newcommand{\g}{\gamma}
+\newcommand{\aut}{\operatorname{Aut}}
+\newcommand{\sym}{\operatorname{Sym}}
+\newcommand{\vau}{\operatorname{v}}
+\newcommand{\WFN}{\operatorname{WFN}}
+\newcommand{\frow}{{}^\frown }
+\newcommand{\Sf}{\operatorname{Sf}}
+\newcommand{\supt}{\operatorname{supt}}
+\newcommand{\Lip}{\operatorname{Lip}}
+\newcommand{\Cont}{\operatorname{Cont}}
+\newcommand{\cont}{\operatorname{Cont}}
+\newcommand{\Comp}{\operatorname{Comp}}
+\newcommand{\submodel}{\preccurlyeq}
+\newcommand{\im}{\operatorname{i}}
+\newcommand{\rc}{\operatorname{rc}}
+\newcommand{\lpr}{\operatorname{lpr}}
+\newcommand{\I}{\operatorname{I}}
+\newcommand{\Bor}{\operatorname{Bor}}
+\newcommand{\cf}{\operatorname{cf}}
+\newcommand{\ci}{\operatorname{ci}}
+\newcommand{\Fn}{\operatorname{Fn}}
+\newcommand{\Fr}{\operatorname{Fr}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\dom}{\operatorname{dom}}
+\renewcommand{\sp}{\operatorname{SP}}
+\newcommand{\ro}{\operatorname{ro}}
+\newcommand{\cov}{\operatorname{cov}}
+\newcommand{\func}{\operatorname{Func}}
+
+\newcommand{\loe}{\leqq}
+\newcommand{\goe}{\geqq}
+
+
+\newcommand{\conv}{\operatorname{conv}}
+\newcommand{\cof}{\operatorname{cof}}
+\renewcommand{\int}{\operatorname{int}}
+\newcommand{\Non}{\operatorname{non}}
+\renewcommand{\div}{\operatorname{div}}
+\newcommand{\clop}{\operatorname{clop}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\otp}{\operatorname{otp}}
+\newcommand{\non}{\operatorname{non}}
+\newcommand{\ZFC}{$\operatorname{ZFC}^*{}$}
+\newcommand{\Succ}{\operatorname{succ}}
+\newcommand{\hm}{\mathfrak{hm}}
+\newcommand{\continuum}{\mathfrak{c}}
+\newcommand{\supp}{\operatorname{supt}}
+\newcommand{\fun}{\operatorname{fun}}
+\newcommand{\dif}{\operatorname{dif}}
+\newcommand{\iii}{I_{\operatorname{mono}}}
+\newcommand{\CARD}{\operatorname{Card}}
+\newcommand{\iin}{\mathcal I_n}
+\newcommand{\ii}[1]{\mathcal I_{#1}}
+\newcommand{\iim}{\mathcal I_m}
+\newcommand{\stem}{\operatorname{stem}}
+\newcommand{\MA}{\operatorname{MA}}
+\newcommand{\Mgood}[1]{\mathcal M_{#1}}
+\newcommand{\MVomegaone}[1]{\mathcal M^{V_{\omega_1}}_{#1}}
+\newcommand{\Halephone}[1]{[\mathcal H_{#1}]^{\aleph_1}}
+\newcommand{\forces}{\Vdash}
+\newcommand{\SEP}{\operatorname{SEP}}
+\newcommand{\incompatible}{\perp}
+\newcommand{\card}[1]{\mid\!\!{#1}\!\!\mid}
+\newcommand{\alomega}{{\aleph_{\omega+1}}}
+\newcommand{\produkt}{{\prod_{n\in \N}\omega_{n+2}+1}}
+\newcommand{\prodkappa}{{\prod_{n\in \N}\omega_{n+2}+1}}
+\newcommand{\produktstar}{{\prod^*_{n\in B}\omega_n+1}}
+
+\newcommand{\ignore}[1]{}
+
+\newtheorem*{abthm}{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{remaek}[theorem]{Remark}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{fact}[theorem]{Claim}
+
+\title{Symmetrized induced Ramsey Theorems}
+
+\author{Stefan Geschke}
+\author{Menachem Kojman}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We prove induced Ramsey theorems in which the induced monochromatic
+subgraph  satisfies that  each of its automorphisms extends to an
+automorphism of the  colored graph. 
+\end{abstract}
+
+\section{Introduction}
+
+Typically, when $H$ is an induced subgraph of $G$, no information about
+the automorphism group of graph $H$  can be drawn from the
+automorphism group of $G$. We examine here a subgraph relation $H\su^S
+G$ in which  $\aut(H)$ is retrievable from  $\aut(G)$ and prove
+several Ramsey theorems for this relation.
+
+The term  ``graph'' always  means ``simple graph''. 
+
+
+\begin{definition}
+%\begin{enumerate}
+  % \item A \emph{graph} $G$ is an ordered pair $(V^G,E^G)$ with
+  %   $V\not=\emptyset$ and $E\su
+ % [V]^2:=\{e:e\su V \text{ and } |e|=2\}$.
+%\item $H$ is an \emph{induced subgraph} of $G$ if $V^H\su V^G$ and
+%  $E^H=E^G\cap [V^H]^2$. We write $H\su G$ if $H$ is an induced
+%  subgraph of $G$ and $H\le G$ if $H$ is isomorphic to an
+%  induced subgraph of $G$. 
+%\item 
+$H$ is a \emph{symmetrized induced subgraph} of $G$ if $H$ is an
+  induced subgraph of $G$ and every automorphism of $H$ extends to an
+  automorphism of $G$. We denote this relation by $H\su^S G$. The
+  relation $H\le ^S G$ means that there exists $H'\su^S G$ so that
+  $H'$ is isomorphic to  $H$.
+\end{definition}
+
+Let $\Gamma$ denote Rado's countable universal and ultrahomogeneous
+graph, also known as the countable random graph. Countability,
+finite universality (the property that every  finite
+graphs embeds as an induced subgraph into $\Gamma$) and
+ultrahomogeneity --- the property that every isomorphism between two
+finite induced subgraphs of $\Gamma$ extends to an automorphism of
+$\Gamma$ --- determine $\Gamma$ up to isomorphism. Ulrahomogeneity
+implies that for every finite induced subgraph $H\su \Gamma$ it holds
+that $H\su^S\Gamma$. 
+
+Rado's graph is univeresal: every countable graph embeds as an induced
+subgraph of $\Gamma$ and, furthermore, for every partition of the
+vertex set $\Gamma$ to finitely many parts, one of the parts contains
+an isomorphic induced copy of $\Gamma$, hence isomorphic copies of all
+countable graphs.
+
+
+We shall prove below (Theorem \ref{main} (3)) that Rado's graph is
+  bi-universal, that is, every countable graph embeds into $\Gamma$ as
+  a symmetrized induced subgraph, the same holds with ``induced
+  symmetrized copy of $\Gamma$'', and that for every partition of the
+  vertex set of $\Gamma$ to finitely many parts, one of the parts
+  contains an induced symmetrized copy of $\Gamma$, hence of every
+  countable graph.
+
+
+
+The relation $\su^S$ makes sense also between finite graphs.
+Hrushovski \cite{H} proved that for fixed finite $H\su \Gamma$ there
+exists a finite $G$ satisfying $H\su G\su \Gamma$ so that every
+isomorphism between induced subgraphs of $H$ extends to an
+automorphism of $G$. Both vertex and edge induced Ramsey theorems hold
+for $\su^S$ on finite graphs (Theorem \ref{main}(1) and (2)). 
+
+
+
+
+
+
+\section{Symmetrized induced Ramsey theorems}
+
+
+\begin{definition}
+\begin{enumerate}
+\item The symbol $G\ars^S (H)^1_r$ means: for every \emph{vertex
+    coloring} of $G$ with $r$ colors there is a monochromatic $H'\su^S
+  G$ isomorphic to $H$.
+  \item $G\ars^S(H)^2_r$ is like  $G\ars^S (H)^1_r$ with
+  ``vertex coloring''    replaced by \emph{``edge coloring''}.
+\end{enumerate}
+\end{definition}
+
+
+A graph $G$ is \emph{vertex transitive} if for any two vertices
+$v,u\in V^G$ there is an automorphism $\sigma \in \aut (G)$ such that
+$\sigma(v)=u$, and is \emph{rigid} if $\aut(H)=\{\id_H\}$.
+Hrushovski's Theorem \cite{H} states that every finite graph $H$ with
+$n$ vertices is an induced subgraph of some vertex transitive graph
+$Z$ with no more than $(2n2^n)!$ vertices such that every isomorphism
+between two induced subgraphs of $H$ extends to an automorphism of
+$Z$ (in particular, $H\su^S Z$).
+
+
+
+\begin{definition}
+\begin{enumerate}
+\item Suppose $G=( V,E)$ is a graph and for every $v\in V$,
+  $H_v=(U_v,E_v)$ is a graph. $\sum_G H_v$ is the graph whose
+  vertex set is $\{(v,u):v\in V,\; u\in U_v\}$ and
+  $\{(v_1,u_1),(v_2,u_2)\}$ an edge iff $\{v_1,v_2\}\in E$ or
+  $v_1=v_2$ and $\{u_1,u_2\}\in E_v$.
+\item If $H_v$ is a fixed graph $H$ for all $v\in V$, then $\sum_G H_v$
+  is denoted $G\otimes H$, and called the \emph{wreath product} of $G$
+  with $H$. The \emph{$r$-th wreath power} of a graph $G$, denoted
+  $G^{\otimes r}$, is defined inductively by $G^{\otimes 1}=G$ and
+  $G^{\otimes (r+1)}=G\otimes G^{\otimes r}$.
+\end{enumerate}
+\end{definition}
+
+It is verified easily (and follows  implicitly from the first case in the
+next proof) that if $G$ is vertex transitive than
+$G^{\otimes r}$ is vertex transitive for all $r\ge 1$. 
+
+\begin{lemma} \label{otimes} Suppose that $G$ is vertex transitive. Then
+ for all natural $r\ge 1$
+\[G^{\otimes r}\ars ^S (G)^1_r.\]
+\end{lemma}
+\begin{proof}
+  Given a vertex coloring of $G^{\otimes (r+1)}$ by $r+1$ colors for
+  some vertex transitive $G$, assume first that for every $v\in V^G$
+  there exists a vertex $u(v)\in V^{G^{\otimes r}}$ so that $(v,u(v))$
+  is red. The graph $G'$ spanned in $G^{\otimes (r+1)}$ by
+  $\{(v,u(v)):v\in V^G\}$ is isomorphic to $G$ and monochromatic. Let
+  $\sigma\in \aut(G')$ be given. As $G^{\otimes 2}$ is vertex
+  transitive, for every $v\in V^G$ there is an automorphism $\tau_v\in
+  \aut(G^{\otimes r})$ with $\tau_v(u(v))=u(\sigma(v))$. Define
+  $\sigma^*(v,u):=(\sigma(v), \tau_v(u))$. Now $\sigma^*$ is an
+  automorphism of $G^{\otimes(r+1)}$ which extends $\sigma$.
+
+  If the assumption above fails, then there is some $v\in V^G$ so that
+  $(v,u)$ is not red for all $u\in V^{G^\otimes r}$. The graph $H$
+  spanned by $\{(v,u):u\in G^{\otimes r}\}$ is isomorphic to
+  $G^{\otimes r}$ and is colored by the given coloring by at most $r$
+  colors. By the induction hypothesis, there is a monochromatic,
+  $G'\su^S H$ which is isomorphic to $G$. Every automorphism of $H$
+  extends to an automorphism of $G^{\otimes r}$ (by making the
+  extension act as the identity function outside $H$), so by
+  transitivity of $\su^S$, every automorphism of $G'$ extends to an
+  automorphism of $G^{\otimes r}$.
+\end{proof}
+
+
+\begin{theorem}\label{main}
+\begin{enumerate}
+\item For every finite graph $H$ with $n$ vertices and $r\ge1$ there
+  exists a  vertex transitive graph $G$ with no more than
+  $((2n2^n)!)^r$ vertices so that
+\[G\ars^S(H)^1_r;\]
+If $H$ is vertex transitive or rigid, then $G$ can be chosen so that
+$|G|=n^{r}$.
+
+\item For every finite graph $H$ with $n$ vertices and $r\ge 1$ there
+  is a graph $G$ with no more than $(2^{2^{cn(\log n)^2} + cn (\log
+      n)^2 +1})!$, where $c$ is a constant and the logarithm is with
+    base $2$,  so that
+\[G\ars^S(H)^2_r;\]
+\item For every $r\ge 1$,
+\[\Gamma \ars^S(\Gamma)^1_r.\]
+Thus for every vertex coloring of $\Gamma$ by $r$
+  colors, there is a single color which contains induced symmetrized
+  copies of all countable graphs. 
+
+\end{enumerate}
+\end{theorem}
+ 
+
+
+
+\begin{proof}[Proof of Theorem \ref{main} (1)]
+  Let $H$ be a given graph with $n$ vertices. By Hrushovski's theorem
+ there exists a finite vertex-transitive graph $Z$ so that
+  $H\le^S Z$ and so that $|V^Z|\le (2n2^n)!$. The graph $Z^{\otimes
+    r}$ is vertex transitive, and by Lemma \ref{otimes}, $Z^{\otimes
+    r}\ars^S(Z)^1_r$. Since $H\su^S Z$, this establishes that
+  $Z^{\otimes r}\ars^S(H)^1_r$.
+
+If $H$ itself is vertex transitive, then $G=H^{\otimes r}$ is vertex
+transitive, $|G|=n^r$ and $G\ars^S(H)^1_r$ by Lemma \ref{otimes}. If
+$H$ is rigid, then $H\su^S G$ whenever $H\su G$, and again
+$G=H^{\otimes r}$ works. 
+\end{proof}
+
+
+\begin{proof}[Proof of Theorem \ref{main} (2)] 
+  Given a finite graph $H$ and $r\ge 1$, fix, by the Edge-induced
+  Ramsey theorem (see \cite{GRS} p. 115), a finite graph $G$ so that
+  $G\ars (H)^2_r$. By \cite{KPR} (see also \cite{FS}) $G$ can be
+  chosen with no more than $2^{cn (\log n)^2}$ vertices.  Using
+  Hrushovski's theorem, fix a finite graph $Z$ with $G\su Z$ with
+  $|Z|\le (2|G|2^{|G|})!)=(2^{2^{cn(\log n)^2} + cn (\log
+      n)^2 +1})!$ such that every isomorphism between two induced
+  subgraphs of $G$ extends to an automorphism of $Z$. We argue that
+  $Z\ars^S(H)^2_r$.  Given an edge-coloring of $Z$ by $r$ colors,
+  consider its restriction to the edges of $G$. As $G\ars (H)^2_r$,
+  there is a monochromatic $H'\su G$ which is isomorphic to $H$.
+  Every automorphism of $H'$ is an isomorphism between induced
+  subgraphs of $G$, hence extends to an automorphism of $Z$. Thus,
+  $H'\su^S Z$.
+\end{proof}
+
+\begin{lemma}\label{inGamma}
+For every countable graph $G$ it holds that $G\le ^S \Gamma$.
+ \end{lemma}
+
+\begin{proof}
+Given a countable graph $G=(V^0, E^0)$ let $G=G_0$. Let $G_{n+1}$ be
+obtained from $G_n$ by adding, for every finite $X\su V^n$, precisely
+one new vertex $v^{n+1}_X\in V^{n+1}\sm V^n$ with $G_{n+1}[v^{n+1}_X]=X$. Let
+$G^*=\bigcup_n G_n$. Clearly, $G^*$ is countable, and $G\le G^*$.  
+
+Let us see that $G^*=\Gamma$. For every
+two disjoint finite sets $X,Y\su V^*$ there is some $n$ so that $X\cup
+Y\su V^n$ and hence a vertex $v_X^{n+1}\in V_{n+1}$ connected by edges
+to all points in $X$ and to no point in $Y$. This property, together with  
+the countability of $G^*$,
+implies that $G^*=\Gamma$.
+
+Finally, let $\sigma\in \aut(G)$ be given. Let $\sigma=\sigma_0$ and
+let $\sigma_{n+1}\in \sym(V^{n+1})$ be the unique permutation of
+$V^{n+1}$ which extends $\sigma_n$ and satisfies
+$\sigma_{n+1}(V_X)=V_{\sigma_n[X]}$. Now $\bigcup_n \sigma_n$ is an
+automorphism of $\Gamma$ which extends $\sigma$. 
+\end{proof}
+
+\noindent \textbf{Remarks}: The embedding of $H$ as a symmetrized
+induced subgraphs of $\Gamma$ obtained above satisfies the additional
+property, that every vertex $v\in V^\Gamma\sm V^H$ has only finitely
+many neighbours in $V^H$. There is
+another way to embed $H$ symmetically into
+$\Gamma$. Rather than realizing all finite sets of $V_n$ as
+neighborhoods of vertices from $V_{n+1}$, one realizez all
+\emph{definable sets} (with parameters). In this way, there are
+vertices in $V^\Gamma\sm V^H$ with infinitely many neighbours in
+$V^H$.  We remark that from the
+\emph{small index property} \cite{HHLS} and \emph{elimination of
+  quantifiers} in $\Gamma$ it easily follows that every subset of
+$\Gamma$ whose orbit under $\aut(\Gamma)$ is countable is actually
+definable.
+
+\begin{proof}[Proof of Theorem \ref{main}(3)]
+  Let $r\ge 1$ be given. $\Gamma^{\otimes r}$ is countable, and as
+  $\Gamma$ is vertex-transitive, $\Gamma^{\otimes r}\ars^S(\Gamma)^1r$
+  by Lemma \ref{otimes}.  Fix $G\su^S\Gamma$ isomorphic to
+  $\Gamma^{\otimes r}$ by Lemma \ref{inGamma}. For every vertex
+  coloring of $\Gamma$ by $r$ colors, there is an induced
+  monochromatic symmetrized copy $G''\su^S G'\su^S \Gamma$. For every
+  countable graph $H$ it holds that $H\le^S G''$ by Lemma
+  \ref{inGamma}, so by transitivity of $\su^S$ we are done.
+\end{proof}
+
+It is well known \cite{EHP} that $\Gamma \not\ars (\Gamma)^2_2$. In
+particular, for some countable graph $H$, there is no countable graph
+$G$ such that $G\ars^S(H)^2_2$. 
+
+
+\section{Bipartite graphs}
+
+
+
+A \emph{bipartite graph} is a triple $B=\lng L,R,E\rng$ where $\lng L\cup R,
+E\rng$ is a graph and  $|e\cap L|=|e\cap R|=1$ for all $e\in E$. $L$
+is the \emph{left side} of $B$ and $R$ is the \emph{ right side} of
+$B$.
+
+Hrushovski's theorem holds also for bipartite graphs. This follows
+either from adapting the original proof to bipartite graphs, or from
+Herwig's extension \cite{H} of Hrushovski's theorem to relational
+structure. Thus, one can obtain the analog of Theorem \ref{main} (2)
+via a similar proof, using Ne\v set\v ril and R\" odl's bipartite
+induced Ramsey theorem \cite{NR76}. However, it is not necessary to
+use Hrushovski's theorem at all in this case, as the monochromatic
+induced bipartite graph given by the proof in \cite{NR76} is
+symmetrized. This is shown in the proof of Theorem \ref{bip1}
+
+With vertex colorings of bipartite graphs the situation is slightly
+different. One can  color all vertices in $L$ by red and all
+vertices in $R$ by blue to avoid monochromatic bipartite
+subgraphs altogether. Theorem \ref{bip2} below shows that
+monochromatic sides can  be guaranteed on some symmetrized induced
+bipartite subgraph.
+
+\begin{definition}
+  The \emph{$n$-th Symmetric power} of a bipartite graph $B=\lng L,R,
+  E\rng$, introduced in \cite{NR76} (see also \cite{GRS} p. 119),  denoted by
+  $B^{(n)}$, is the bipartite graph $\lng L^n, R^n, E^{(n)}\rng$ where
+  $\{\bar v, \bar u\}\in E^{(n)}$ iff for all $i<n$ it holds that
+  $\{v(i),u(i)\}\in E$.
+\end{definition}
+
+The mapping $\lng \lng v(i):i<n\rng, \lng u(i):i<n\rng\rng\mapsto \lng
+\{v(i),u(i)\}:i<n\rng$ is a natural 1-1 correspondence between
+$E^{(n)}$ and $E^n$, the set of all sequence of length $n$ of edges
+from $E$.
+
+\begin{theorem}\label{bip1}
+  For every finite bipartite graph $B=\lng L, R, E\rng$ and $r>0$
+  there exists a number $n$ so that $B^{(n)}\ars^S (B)^2_1$.
+\end{theorem}
+
+\begin{proof}
+  First, let us assume that $B$ has no isolated vertices. This can be
+  achieved by adding a unique neighbour in $L$ to every isolated
+  vertex in $R$ and vice versa.
+
+
+Let $n=HJ(|E|,r)$, the Hales-Jewett number of $n$ and $r$. A coloring
+of $E^{(n)}$ by $r$ colors can be considered as a coloring of $E^n$ via
+ the natural correspondence above. 
+
+ Let $W\in
+(E\cup\{X\})^n$ be a word such that $I=\{i: W(i)=X\}\not=\emptyset$
+and so that the combinatorial line defined by $W$ in $E^n$ is
+monochromatic. The line defined by $W$ is $\{W(e):e\in E\}$ where
+$W(e)$ is obtained from $W$ by substituting $e$ for every occurrence
+of $X$ in $W$.
+
+Define an embedding $\phi$  of $B$ into $B^{(n)}$ as follows. For
+$v\in L$ let $\phi(v)=\lng W(i)\cap L: i\in n\sm I\rng\cup \lng v:
+i\in I\rng$, that is, the sequence of left vertices from $W(i)$ for
+all $i$ such that $W(i)\not=X$ and constantly $v$ for all $i\in
+I$. For $u\in R$, $\phi(u)$ is defined similarly. 
+
+As $B$ has no isolated vertices, the map $\phi$ clearly embeds $B$
+into $B^{(n)}$ as an induced subgraph. Furthermore, this subgraph is
+monochromatic, as the combinatorial line defined by $W$ is. We argue
+that this induced monochromatic copy of $B$ is also
+symmetrized. Indeed, let $\sigma\in \aut (\phi(B))$ be given, and let
+$\bar \sigma:L^n\cup R^n\to L^n\cup R^n$ be defined as follows: for
+$\bar v= \lng v(i):i<n\rng$, $\bar \sigma(\bar v)=\lng v(i):i\in n\sm
+I\rng \cup \lng \sigma(v(i)):i\in I\rng$, and similarly for $\bar u\in
+R^n$. This is an automorphism of $B^{(n)}$: if $\{ \bar v,\bar u\}$
+then $\{\bar v(i),\bar u(i)\}\in E$ for all $i<n$. For $i\in n\sm i$
+it holds that $\bar \sigma (\bar v)(i)=\bar v(i)$ and $\bar
+\sigma(\bar u)(i)=\bar u(i)$, while for $i\in I$ it holds that $\{\bar
+\sigma(\bar u)(i),\bar\sigma(\bar v)(i)\}\in E$ because $\sigma \in
+\aut (\phi(H))$, so $\{\bar\sigma(\bar u),\bar\sigma(\bar v)\}\in
+E^{(n)}$. Similarly, non-edges are preserved. Clearly, $\bar \sigma$
+extends $\sigma$.
+\end{proof} 
+
+\begin{theorem}\label{bip2} 
+  For every finite bipartite graph $B$ and $r>0$ there exists $n$ such
+  that for every coloring of vertices of $B^{(n)}$ by $r$ colors there
+  is a symmetrized induced copy of $B$ whose left side is
+  monochromatic and whose right side is monochromatic.
+\end{theorem}
+
+\begin{proof}
+  Assume, as in the previous proof, that $B=\lng L,R,E\rng$ has no
+  isolated vertices and let $n=HJ(|E|,r^2)$. Given a vertex coloring
+  $c$ of $B^{(n)}$ by $r$ colors, define an edge coloring of $B$ by $r^2$
+  colors by assigning the color $\lng c(e\cap L^n),c(e\cap R^n)\rng$ to an
+  edge $e\in E^{(n)}$. 
+\end{proof}
+
+\section{Variations}
+
+A reasonable relaxation of $\ars^S$ is the following relation:
+\[G\ars^{S*}(H)^1_r\]
+which means: for every vertex coloring of $G$ with
+ $r$ colors $H$ embeds as an induced subgraph into \emph{some} 
+ symmetrized induced and monochromatic subgraph of $G$. 
+
+
+
+ By \cite{BS}, every graph of size $n$ can be made an induced subgraph
+ of a Cayley graph of \emph{any} group with $cn^3$ vertices. This was
+ imporved to $cn^3/\log n$ vertices in \cite{ALR}.  By \cite{BS}, every
+ graph $H$ with $n$ vertices is an induced subgraph of \emph{some}
+ vertex-transitive (Cayley) graph $G$, with at most $cn^2$ vertices,
+ where $c$ is a constant. Thus, by Lemma \ref{otimes} the
+ following follows:
+
+\begin{theorem}\label{var}There is a constant $c$ so that for every
+ graph $H$ with $n$ vertices and $r\ge 1$ there is  a graph $G$
+with no more than 
+ $c^rn^{2r}$ vertices  so that 
+\[G\ars^{S*}(H)^1_r.\]
+In fact, a monochromatic copy of $H$ can be found in a 
+symmetrized and induced monochromatic copy of some prescribe
+vertex-transitive graph $H'$ with $cn^2$ vertices. 
+\end{theorem}
+
+
+
+
+\section{Discussion: upper and lower bounds}
+
+$K_n$-free graphs.
+
+
+Can a smaller upper bound than $(2n2^n)!$ be obtained on the size of
+a graph $Z$ satisfying $G\su^S Z$ where $|G|=n$?  Hrushovski \cite{H}
+shows that for the property that every automorphism between subgraphs
+of $G$ extends to a full automorphism of $Z$, an exponential lower
+bound on $|A|$ in terms of $|G|$ is required.
+
+
+Randomly constructed graphs tend to be rigid. (true?) However,
+recently, Fox and Sudakov \cite{FS} re-established the upper bound of
+$2^{cn(\log n)^2}$ which was obtained in \cite{KPR} with a randomly
+constructed graph, with the explicit Payley graph, which has quite a
+few automorphisms.  Can one find a better upper bound than the one
+obtained in Theorem \ref{main}(2)?
+
+It is also interesting to find lower bounds for the vertex-coloring
+theorems. Is the $n^r$ bound tight for vertex transitive graphs in
+\ref{main}(1)? What about lower bounds for the relation in Theorem
+\ref{var}? 
+
+The connection between the least size of some $G$ for which
+$G\ars^S(H)^1_r$ to  the automorphism group of $H$ is
+interesting. Which are the graphs for which a largest $G$ is required? 
+
+Finally, is there a good upper bound for the bipartite graph relation?
+The upper bound coming from the Hales-Jewett theorem is quite large.
+
+\bigskip
+The authors  thank Noga Alon for directing  them to references
+\cite{ALR,B,BS,FS} and  for  detailed explanations of several  results in
+them. 
+
+
+
+\begin{thebibliography}{99}
+
+\bibitem{ALR} N. Alon, H. Lefmann and V. R\"odl.
+{\sl On an anti-Ramsey type result}, Colloq. Math. Soc.
+J\'anos Bolyai 60; Sets, Graphs and Numbers, Budapest (Hungary),
+1991, 9-22.
+
+
+\bibitem{B} Babai, L.
+{\sl An anti-Ramsey theorem.}
+Graphs Combin. 1 (1985), no. 1, 23--28.
+
+
+\bibitem{BS} L\'aszl\'o Babai and  Vera T. S\'os.
+{\sl Sidon sets in groups and induced subgraphs of Cayley graphs.}
+European J. Combin. 6 (1985), no. 2, 101--114.
+
+
+
+\bibitem{GRS} Ronald L. Graham, Bruce L. Rothschild and Joel
+  H. Spencer. {\bf Ramsey Theory} Jon Wiley \& sons, 1990. 
+
+\bibitem{H} Ehud Hrushovski. {\sl Extending partial isomorphisms of
+  graphs}, Combinatorica  12 (4) (1992) 411--416.
+
+\bibitem{EHP} P. Erd\H os, A. Hajnal and L.  P\'osa. {\sl Strong
+    embeddings of graphs into colored graphs.} Infinite and finite
+  sets (Colloq. Keszthely, 1973; dedicated to P. Erd\H os on his 60th
+  birthday), Vol. 1, pp. 585--595.
+
+\bibitem{FS} Jacob Fox and Benny Sudakov. {\sl Induced Ramsey-type
+    theorems}, preprint. 
+
+
+\bibitem{HHLS} W. Hodges, I. Hodkinson, D. Lascar and S. Shelah. {\sl The
+    small index property for $\omega $-stable, $\omega$-categorical
+    structures and the random graph,} J London Math Soc 48 (1993)
+    pp. 204-218.
+
+\bibitem{KPR} Y. Kohayakawa, H. Pro\"omel and V. R\"odle. {\sl Induced
+    Ramsey numbers,} Combinatorica 18 (1998) pp. 373--404.
+
+\bibitem {NR76} J. Ne\v set\v ril and V. R\"odle. {\sl The Ramsey
+    Property for Graphs with Forbidden Complete Subgraphs.}
+  J. Comb. Th. (B) 20 (1976), 243--249.
+
+
+
+\end{thebibliography}
+\end{document}
+
+
+\begin{theorem}
+Suppose $G$ is a group of size $n$.
+$G\otimes G$ is the wreath product of $G$ with itself (as permutation
+groups). 
+\end{theorem}
+\begin{proof}
+Suppose the elements of $G\otimes G$ are colored by two colors. If one
+island is all blue, then extend by identity. Otherwise there is a red
+permutation in each island. Not a subgroup. But is a subset? 
+\end{proof}
+  
+
+
+
+\subsection{bipartitie graphs}
+
+
+  The random bipartite graph is the unique (up to isomorphism)
+  countable graph with a left side $L$, a right side $R$, and edge set
+  $E\su L\times R$ which satisfies: for every two disjoint finite
+  $X,Y$ of $L$ [$L$] there exists a vertex $v\in R$ [$\in L$]
+  connected by edges to all members of $X$ and to no member of $Y$.
+
+A similar proof to that of Lemma \cite{inGamma} gives:
+\begin{lemma}
+$B\le ^S \Beta$ for every countable bipartite graph $B=(L^G,R^G,E^G)$.
+\end{lemma}
+
+Say that $\Beta \ars (B)^r_{1,1}$ if for every vertex coloring of
+$\Beta$ by $r$ colors there is an induced copy $B'$ of $B$ (with $L^{B'}\su L$
+and $R^{B'}\su R$ so $L^{H'}$ is monochromatic and $R^{B'}$ is
+monochromatic. 
+
+It is easily verified that $\Beta \ars (\Beta)^r_{1,1}$ for every
+$r\ge 1$. Now similarly to Theorem \ref{mail},(3), one gets easily:
+
+\begin{theorem}
+ For every  vertex coloring of $\Beta$ by $r$ colors and every
+ countable bipartite $G$ there a  exists $G'\su ^S\Beta$
+ isomorphic to $G$ with all the coloring constant on each side of $G'$.
+\end{theorem}
+
+
+$\Beta\otimes \Beta:=(L\otimes L, R\otimes R, E)$ where $
+
+
+And then the following follows: 
+
+\begin{theorem}\label{bip} For every countable bipartite graph $B$ and
+  $r\ge 1$,
+\[\Beta \ars^S(B)^r_{1,1}.\]
+\end{theorem}
+
+\begin{problem} What are the upper and lower bounds in the finite
+  version of Theorem \ref{bip}?
+\end{problem}
+
+
+
+
+
+The symmetrized partition relation symbols
+  $G\ars^S(H)^1_r$ and $G\ars^S(H)^2_r$ mean that for every
+  vertex-(respectively, edge-) $r$-coloring of the graph $G$ there
+  exists an induced monochromatic copy of the graph $H$ each of whose
+  automorphisms extends to an automorphism $G$. We prove several
+  symmetrized induced partition theorems for finite and for countably
+  infinite graphs.
+
+
+
+
+
+\begin{problem}
+Is it true that for every countable bipartite graph $B$ and every
+coloring by finitely many colors of the veretices of the random
+bipartite graph $\Beta$, there is an induced symmetrized copy of $B$
+with monochromatic sides?
+\end{problem}
+
+Let us remark that this relation does hold without the requirement of
+``symmetrized'' and that it is also true that  $B\le^S\Beta$ for every
+countable bipartite graph. The missing ingredient for a proof is
+$\Beta \ars^S(\Beta)^{1}_{r,1,1}$ (with $r,1,1$ is the subscript
+meaning that the induced copy has monochromatic sides). 
+
+
+
+Relational structures? Not graphs? 
+
+Ultraproduct of Payley graphs?  
