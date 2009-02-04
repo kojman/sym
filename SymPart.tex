@@ -1,5 +1,5 @@
 \documentclass[11pt]{amsart}
-\usepackage{pdfsync}
+%\usepackage{pdfsync}
 \usepackage{amsmath,amssymb}
 
 \newcommand{\Beta}{\mathcal B}
@@ -105,6 +105,8 @@
 \newcommand{\prodkappa}{{\prod_{n\in \N}\omega_{n+2}+1}}
 \newcommand{\produktstar}{{\prod^*_{n\in B}\omega_n+1}}
 
+\newcommand{\U}{\mathbb{U}}
+
 \newcommand{\ignore}[1]{}
 
 \newtheorem*{abstheorem}{Theorem}
@@ -129,19 +131,89 @@
 \begin{document}
 \maketitle
 
-\begin{abstract}
-We prove induced Ramsey theorems in which the induced
-monochromatic subgraph  satisfies that  some of its partial automorphisms
-extend to  automorphisms of the  colored graph.
+\begin{abstract} We prove induced Ramsey theorems in which the induced
+monochromatic subgraph satisfies that a prescribed subset of its
+partial
+automorphisms extend to total automorphisms of the colored graph.
 \end{abstract}
 
 \section{Introduction}
-By ``graph'' we always  mean  ``a simple graph''.
 
+
+Embedding graphs into graphs with particular symmetry properties has
+bean
+treated by several authors. Babai and S\'os \cite{BS} have shown how
+to
+embed a given graph into a transitive one, and Hrushovski \cite{H} has
+shown that every finite graph $H$ can be embedded as an induced
+subgraph
+of a finite graph $G$ so that every partial automorphism of $H$
+extends
+to a total automorphism of $G$. Hrushovski's theorem was needed
+in the model-theoretic proof of the \emph{small index property} of the
+automorphism group of Rado's
+countable universal graph $\Gamma$ \cite{HHLS}.
+
+In the present paper we study the Ramsey-theoretic properties of
+certain
+symmetrized subgraph relations. Such a theorem with a target graph $H$
+and
+a source graph $G$ asserts that the induced copies of $H$ in $G$ which
+satisfy that each member in a prescribed subset of their partial
+automorphisms extends to a total automorphims of $G$ cannot be
+``killed" by
+vertex or by edge colorings with $c$ colors. When representing a
+finite
+graph $G$ as an ``object" in the computer-theoretic sense and viewing
+the
+automorphisms of $G$ as ``methods" of that object, it is desirable to
+know
+that for a certain subgraph $H$ of $G$ some of the partial
+automorphisms
+of $H$ can be implemented by those of $G$, and need not be stored
+separately, e.g. that a vertex $v$ in $H$ can be moved to a vertex $u$
+of
+$H$. Our Ramsey theorems demonstrate ways in which stability
+of this relation may be obtained, namely, that every partition of the
+(vertices or edges) of the source graph to $c$ parts leaves at
+least one good copy of $H$ intact.
+
+We present several quite easy proofs of such symmetrized finite Ramsey
+theorems which rely on the known induced Ramsey theorems and known
+symmetrizing extensions. We also treat the infinite case and prove
+that
+for every finite vertex coloring of the countable random graph
+$\Gamma$
+there is a color which for  every countable graph $G$ contains an
+induced copy of $G$ all of whose total automorphisms extend to
+automorphisms of $\Gamma$. The fact that every countable graph $G$ has
+at
+least \emph{one} induced symmetrized copy in $\Gamma$ resembles
+Kat\v etov's
+treatment \cite{K} of Uryson's separable universal space $\U$: Kat\v
+etov
+proved that
+every separable metric space embeds into $\U$ together with its group
+of
+auto-isometries --- hence that $\aut(\U)$ is a universal topological
+group. The same relation of embedding a structure together with its
+group of automorphisms was studied on families of sets by Kojman
+and
+Shelah in \cite{KS} where the existence of a bi-universal Borel family
+of
+sets over a countable set was proved among other results.
 
 \subsection{Symmetrized subgraph relations}
-Suppose $H$ is an induced subgraph of $G$. An isomorphism $f:A\to B$
-between two induced subgraphs of of $H$ is \emph{implementable in $G$}
+
+By ``graph'' we always  mean  ``a simple graph'' $G=(V,E)$ where
+$V\not=\emptyset$ is the set of vertices and $E\su [V]^2$ is the set
+of
+unordered edges.
+
+ Suppose $H$ is an induced subgraph of
+$G$. An isomorphism $f:A\to
+B$ between two induced subgraphs of of $H$ is \emph{implemented by}
+$\aut(G)$
 if there exists $f^*\in \aut (G)$ so that $f\su f^*$. For a set $F$ of
 isomorphisms between subgraphs of $H$ we write $H\su ^{F} G$ if $H$ is
 an induced subgraphs of $G$ and every $f\in F$ is implemented by $\aut
@@ -164,17 +236,19 @@ an automorphism of $G$.
 Let $\Gamma$ denote Rado's countable and universal \emph{random
   graph}. Every isomorphism between two finite induced subgraphs of
 $\Gamma$ is implemented in $\Gamma$, so every induced subgraph
-$G$ 
+$G$
 of $\Gamma$ satisfies $G\su ^P \Gamma$. As every
-countable graph embeds as an induced subgraph of $\Gamma$, 
+countable graph embeds as an induced subgraph of $\Gamma$,
 it holds that for every countable graph $G$,
 \begin{equation}G\le ^P \Gamma.
-\end{equation} 
+\end{equation}
 
 
 
-A fundamental theorem of Hrushovski \cite{H} says  that to implement all
-partial isomorphisms of a \emph{finite} graph $H$  a finite $G$ suffices:
+A fundamental theorem of Hrushovski \cite{H} says  that to implement
+all
+partial isomorphisms of a \emph{finite} graph $H$  a finite $G$
+suffices:
 
 \begin{theorem}[Hrushovski \cite{H}]
 For every finite graph $H$ with $n$ vertices there exists a vertex
@@ -183,48 +257,63 @@ transitive graph $Z$ with no more than $(2n2^n)!$ so that
 H\su^P Z.
 \end{equation}
 \end{theorem}
- 
+
 \bigbreak
 
 \subsection{The results}
-We prove Ramsey theorems which demonstrate the stability of the
-induced subgraph relations defined above under vertex and edge
-colorings of suitable graphs.
+%We prove Ramsey theorems which demonstrate the stability of the
+%induced subgraph relations defined above under vertex and edge
+%colorings of suitable graphs.
 
 
 
-\begin{notation}For $d\in \{1,2\}$,  the symbol 
+\begin{notation}For $d\in \{1,2\}$,  the symbol
 \[G\ars^F(H)^d_r\]
- means that for every coloring of the vertices of $G$, if
-$d=1$, or of the edges of $G$, if $d=2$,  by $r$
-colors there exists a monochromatic $H'\su ^F G$ which is isomorphic
+ means that for every coloring by $r$ colors of the vertices of $G$,
+if
+$d=1$, or of the edges of $G$, if $d=2$,
+there exists a monochromatic $H'\su ^F G$ which is isomorphic
 to $H$.
 \end{notation}
 
-We  prove that for every finite graph $H$ and natural number
-$r\ge 1$ there exists some finite graph $G$ so that 
+We  prove separately for every  choice of $d\in\{1,2\}$ and
+$F\in\{P_1, A, P\}$ that for every finite graph $H$ and natural
+number $r\ge 1$ there exists a finite graph $G$ so that
 \begin{equation}
-G\ars^F (H)^d_r
-\end{equation} 
-for $d\in\{1,2\}$ and $F\in\{P_1, A, P\}$. In the case $d=1,F=P_1$ the
-size of $G$ is bounded asymptotically by $|H|^{(2+\varepsilon)r}$ for
-arbitrarily small $\varepsilon>0$.
+G\ars^F (H)^d_r.
+\end{equation}
 
+Upper bounds on the number of vertices in $G$ are given  in the
+number of vertices of $H$ in each case. In the case $d=1$ and
+$F=P_1$, for example,  the size of $G$ is bounded asymptotically
+by $|H|^{(2+\varepsilon)r}$ for arbitrarily small $\varepsilon>0$.
 
-In the case of the infinite random graph $\Gamma$,  not
+For a given graph $H$ and number of colors $r$ it is also possible
+to find a \emph{single} finite graph $G$ that will satisfies the
+relation $G\rightarrowtail^F (H)^d_r$ simultaneously for all $d\in
+\{1,2\}$ and $F\in\{P_1,P, S\}$.
+
+ In the case of the infinite
+random graph $\Gamma$ not
  every induced subgraph $G$ of $\Gamma$ satisfies $G\su ^A
-\Gamma$, however,  for every countable graph $G$ and
-$r>0$, 
+\Gamma$.
+However,  for every countable graph $G$ and
+$r>0$,
 \begin{equation}
 \Gamma\ars^A(G)^1_r.
 \end{equation}
 In fact, for every coloring of the vertex set of $\Gamma$ by finitely
-many colors, a single color  contains $\su^A$ copies of all
-countable graphs. 
+many colors, a single color  contains $\su^A$-copies of all
+countable graphs.
 
+We also observe that the standard proof of the induced bipartite
+Ramsey
+theorem due to Ne\v set\v ril and  R\"odl actually gives its
+symmetrized form.
 
-
-
+We conclude the paper with several problems on induced Ramsey theory
+and
+automorphisms.
 
 
 
@@ -235,30 +324,32 @@ countable graphs.
 
 A graph $G$ is \emph{vertex transitive} if for any two vertices
 $v,u\in V^G$ there is an automorphism $\sigma \in \aut (G)$ such
-that $\sigma(v)=u$.
+that $\sigma(v)=u$. Equivalently, $G$ is transitive iff $G\su^{P_1}G$.
 %, and is \emph{rigid} if $\aut(H)=\{\id_H\}$.
 
 
 
 
 \begin{definition}
-\begin{enumerate}
-\item Suppose $G=( V,E)$ is a graph and for every $v\in V$,
+%\begin{enumerate}
+a) Suppose $G=( V,E)$ is a graph and for every $v\in V$,
   $H_v=(U_v,E_v)$ is a graph. $\sum_G H_v$ is the graph whose
   vertex set is $\{(v,u):v\in V,\; u\in U_v\}$ and
   $\{(v_1,u_1),(v_2,u_2)\}$ an edge iff $\{v_1,v_2\}\in E$ or
   $v_1=v_2$ and $\{u_1,u_2\}\in E_v$.
-\item If $H_v$ is a fixed graph $H$ for all $v\in V$, then $\sum_G H_v$
+
+b) If $H_v$ is a fixed graph $H$ for all $v\in V$, then $\sum_G H_v$
   is denoted $G\otimes H$, and called the \emph{wreath product} of $G$
   with $H$. The \emph{$r$-th wreath power} of a graph $G$, denoted
   $G^{\otimes r}$, is defined inductively by $G^{\otimes 1}=G$ and
   $G^{\otimes (r+1)}=G\otimes G^{\otimes r}$.
-\end{enumerate}
+%\end{enumerate}
 \end{definition}
 
 
-\begin{lemma} \label{otimes} Suppose that $G$ is vertex transitive. Then
- for all natural $r\ge 1$, 
+\begin{lemma} \label{otimes} Suppose that $G$ is vertex transitive.
+Then
+ for all natural $r\ge 1$,
 \begin{equation}\label{oeq}
 G^{\otimes r} \text{ is vertex
  transitive and } G^{\otimes r}\ars ^A (G)^1_r.
@@ -266,7 +357,7 @@ G^{\otimes r} \text{ is vertex
 \end{lemma}
 \begin{proof}
   Suppose $G$ is vertex-transitive. We prove (\ref{oeq}) by induction
-  on $r\ge 1$. The case $r=1$ is trivial. 
+  on $r\ge 1$. The case $r=1$ is trivial.
 
 
   Given a vertex coloring of $G^{\otimes (r+1)}$ by $r+1$ colors,
@@ -278,7 +369,7 @@ G^{\otimes r} \text{ is vertex
   hypothesis, for every $v\in V^G$ there is an automorphism $\tau_v\in
   \aut(G^{\otimes r})$ such that $\tau_v(u(v))=u(\sigma(v))$. Define
   $\sigma^*(v,u):=(\sigma(v), \tau_v(u))$. Now $\sigma^*$ is an
-  automorphism of $G^{\otimes(r+1)}$ which extends $\sigma$. 
+  automorphism of $G^{\otimes(r+1)}$ which extends $\sigma$.
 
   The argument in this case establishes also that $G^{\otimes(r+1)}$
   is vertex-transitive.
@@ -288,10 +379,11 @@ G^{\otimes r} \text{ is vertex
   $(v,u)$ is not red for all $u\in V^{G^\otimes r}$. The graph $H$
   spanned by $\{(v,u):u\in G^{\otimes r}\}$ is isomorphic to
   $G^{\otimes r}$ and is colored by the given coloring by at most $r$
-  colors. By the induction hypothesis, there is a monochromatic,
+  colors. By the induction hypothesis, there is a monochromatic
   $G'\su^A H$ which is isomorphic to $G$. Every automorphism of $H$
   extends to an automorphism of $G^{\otimes r}$ (by making the
-  extension act as the identity function outside $H$), so by
+  extension act as the identity function outside $H$).
+  So by
   transitivity of $\su^A$, every automorphism of $G'$ extends to an
   automorphism of $G^{\otimes r}$.
 \end{proof}
@@ -311,7 +403,8 @@ G^{\otimes r} \text{ is vertex
   By \cite{BS}, there exists a constant $c$ such that every graph $H$
   with $n$ vertices is an induced subgraph of some vertex-transitive
  graph $G$, with at most $cn^2$ vertices. Given an
-  arbitrary graph $H$ with $n$ vertices we may, then,  by increasing the
+  arbitrary graph $H$ with $n$ vertices we may, then,  by increasing
+the
   cardinality of $H$ to at most $cn^2$,  assume that $H$
   is vertex-transitive. Now $G=H^{\otimes r}$ is vertex transitive,
   $|G|=c^r n^{2r}$ and $G\ars^A(H)^1_r$ by Lemma \ref{otimes}. Given a
@@ -325,7 +418,7 @@ G^{\otimes r} \text{ is vertex
 \begin{theorem} \label{P} For every finite graph $H$ with $n$ vertices
   and $r\ge1$ there exists a vertex transitive graph $G$ with no more
   than $((2n2^n)!)^r$ vertices such that
-\[G\ars^P(H)^1_r;\]
+\[G\ars^P(H)^1_r.\]
 \end{theorem}
 
 \begin{proof}
@@ -340,9 +433,10 @@ Hrushovski \cite{H} proves that an exponential lower bound on $|G|$ in
 terms of $|H|$ is required
  for the relation  $H\su^PG$, even if one restricts from  $P$ to
  permutations of free subsets of $H$. Thus, clearly, an exponential
- lower bound is required in the partition just proved. 
+ lower bound is required in the partition result just proved.
 
-We handle next vertex partitions of the infinite random graph $\Gamma$. 
+We handle next vertex partitions of the infinite random graph
+$\Gamma$.
 
 \begin{lemma}\label{inGamma}
 For every countable graph $G$ it holds that $G\le ^A \Gamma$.
@@ -352,7 +446,8 @@ For every countable graph $G$ it holds that $G\le ^A \Gamma$.
 Given a countable graph $G_0=(V^0, E^0)$, define by induction on $n$
 a sequence of countable graphs
 $G_{n}=(V^{n},E^{n})$ satisfying that $G^n$ is an induced subgraph of
-$G^{n+1}$ for all $n$. $V^{n+1}=V^n\cup\{v^{n+1}_X: X\su V^n \text{
+$G^{n+1}$ for all $n$.
+Let $V^{n+1}=V^n\cup\{v^{n+1}_X: X\su V^n \text{
   and } |X| \text{ is
   finite}\}$ and $E^{n+1}=E^n\cup\{(v,v^{n+1}_X):v^{n+1}_X\in
 V^{n+1}\sm V^n \text{ and } v\in X\}$.
@@ -360,11 +455,11 @@ V^{n+1}\sm V^n \text{ and } v\in X\}$.
 Clearly, $G^*$
 is countable, and $G^0$ is an induced subgraph of $G^*$.
 
-Let us see that $G^*=\Gamma$. For every two disjoint finite sets
+Let us see that $G^*\cong\Gamma$. For every two disjoint finite sets
 $X,Y\su V^*$ there is some $n$ so that $X\cup Y\su V^n$ and hence
 a vertex $v_X^{n+1}\in V^{n+1}$ connected by edges to all points
 in $X$ and to no point in $Y$. This property, together with the
-countability of $G^*$, implies that $G^*=\Gamma$.
+countability of $G^*$, implies that $G^*\cong\Gamma$.
 
 Finally, let $\sigma\in \aut(G)$ be given. Let $\sigma=\sigma_0$
 and let $\sigma_{n+1}\in \sym(V^{n+1})$ be the unique permutation
@@ -373,18 +468,20 @@ $\sigma_{n+1}(v_X)=v_{\sigma_n[X]}$. Now $\bigcup_n \sigma_n$ is
 an automorphism of $\Gamma$ which extends $\sigma$.
 \end{proof}
 
-\noindent \textbf{Remarks}: The embedding of $H$ as a $\su^A$
-subgraphs of $\Gamma$ obtained above satisfies the additional
-property, that every vertex $v\in V(\Gamma)\sm V(H)$ has only finitely
-many neighbours in $V(H)$. There is another way to embed $H$
-symmetically into $\Gamma$. Rather than realizing all finite sets of
-$V_n$ as neighborhoods of vertices from $V_{n+1}$, one realizez all
+\noindent \textbf{Remarks}: The embedding of $H$ as a
+$\su^A$-subgraphs
+of $\Gamma$ obtained above satisfies the additional
+property that every vertex $v\in V(\Gamma)\sm V(H)$ has only finitely
+many neighbors in $V(H)$. There is another way to embed $H$
+symmetrically into $\Gamma$. Rather than realizing all finite sets of
+$V_n$ as neighborhoods of vertices from $V_{n+1}$, one realizes all
 \emph{definable sets} (with parameters). In this way, there are
-vertices in $V(\Gamma)\sm V(H)$ with infinitely many neighbours in
+vertices in $V(\Gamma)\sm V(H)$ with infinitely many neighbors in
 $V(H)$.  We remark, finally, that from the \emph{small index property}
 \cite{HHLS} and \emph{elimination of quantifiers} in $\Gamma$ it
 easily follows that every subset of $\Gamma$ whose orbit under
-$\aut(\Gamma)$ is countable is actually definable.
+$\aut(\Gamma)$ is countable is a finite Boolean combination of
+neighborhoods.
 
 
 \begin{theorem}\label{Gamma}
@@ -397,34 +494,37 @@ Thus for every vertex coloring of $\Gamma$ by $r$
 
 \begin{proof}
   Let $r\ge 1$ be given. $\Gamma^{\otimes r}$ is countable, and as
-  $\Gamma$ is vertex-transitive, $\Gamma^{\otimes r}\ars^A(\Gamma)^1_r$
+  $\Gamma$ is vertex-transitive, $\Gamma^{\otimes
+r}\ars^A(\Gamma)^1_r$
   by Lemma \ref{otimes}.  Fix $G\su^A\Gamma$ isomorphic to
   $\Gamma^{\otimes r}$ by Lemma \ref{inGamma}. For every vertex
   coloring of $\Gamma$ by $r$ colors, there is an induced
-  monochromatic  copy of $\Gamma$,  $G''\su^A G'\su^A \Gamma$. For every
+  monochromatic  copy of $\Gamma$,  $G''\su^A G'\su^A \Gamma$. For
+every
   countable graph $H$ it holds that $H\le^A G''$ by Lemma
   \ref{inGamma}, so by transitivity of $\su^A$ we are done.
 \end{proof}
 
 It is well known \cite{EHP} that $\Gamma \not\ars (\Gamma)^2_2$.
-In particular, for some countable graph $H$, there is no
+In particular, for some countable graph $H$ there is no
 countable graph $G$ such that $G\ars^A(H)^2_2$.
+
 \section{Edge Colorings}
 
 \begin{theorem}\label{edge}
-\begin{enumerate}
+%\begin{enumerate}
 \item For every finite graph $H$ with $n$ vertices and $r\ge 1$ there
   is a graph $G$ with no more than $(2^{2^{cn(\log n)^2} + cn (\log
       n)^2 +1})!$, where $c$ is a constant and the logarithm is with
     base $2$,  so that
 \[G\ars^{P}(H)^2_r.\]
-\end{enumerate}
+%\end{enumerate}
 \end{theorem}
 
 \begin{proof}
- Given a finite graph $H$ and $r\ge 1$, fix, by the Edge-induced
+ Given a finite graph $H$ and $r\ge 1$, fix, by the edge-induced
   Ramsey theorem (see \cite{GRS} p. 115), a finite graph $G$ so that
-  $G\ars (H)^2_r$. By \cite{KPR} (see also \cite{FS}) $G$ can be
+  $G\ars (H)^2_r$. By \cite{KPR} (see also \cite{FS}), $G$ can be
   chosen with no more than $2^{cn (\log n)^2}$ vertices.  Using
   Hrushovski's theorem, fix a finite graph $Z$ with $G\su Z$ with
   $|Z|\le (2|G|2^{|G|})!)=(2^{2^{cn(\log n)^2} + cn (\log
@@ -439,6 +539,31 @@ countable graph $G$ such that $G\ars^A(H)^2_2$.
 \end{proof}
 
 
+We conclude this section with the following
+
+\begin{theorem}For every finite graph $H$ and number
+of colors $r$ there is a finite graph $G$ such that
+\[G\rightarrowtail^P(H)^d_r\]
+holds for both   $d=1$ and $d=2$.
+\end{theorem}
+
+\begin{proof}
+First find and induced extension $G_1$ of $H$ such that
+$G_1\rightarrowtail (H)^2_r$ by \ref{edge}. Then find a
+\emph{transitive} $G_2$ such that $G_1\su^P G_2$
+by Hrushovski's
+theorem. Now let $G=G_2^{\otimes r}$.
+
+It holds that $G\rightarrowtail ^S(G_2)^1_r$ by \ref{otimes}, so
+since $H\su ^P G_2\su^S  G$, it holds that
+$G\rightarrowtail^P(H)^1_r$.
+
+The  relation $G\rightarrowtail^P(H)^2_r$ holds because
+$G_2\rightarrowtail^P(H)^2_r$ holds and $G_2\su^SG$.
+\end{proof}
+
+
+
 \subsection{Bipartite graphs}
 
 
@@ -451,7 +576,7 @@ all $e\in E$. $L$ is the \emph{left side} of $B$ and $R$ is the
 Hrushovski's theorem holds also for bipartite graphs. This follows
 either from adapting the original proof to bipartite graphs, or
 from Herwig's extension \cite{H} of Hrushovski's theorem to
-relational structure. Thus, one can obtain the analog of Theorem
+relational structures. Thus, one can obtain the analog of Theorem
 \ref{edge} via a similar proof, using Ne\v set\v ril and R\"
 odl's bipartite induced Ramsey theorem \cite{NR76}. However, it
 is not necessary to use Hrushovski's theorem at all in this case,
@@ -467,8 +592,9 @@ monochromatic sides can  be guaranteed on some symmetrized induced
 bipartite subgraph.
 
 \begin{definition}
-  The \emph{$n$-th Symmetric power} of a bipartite graph $B=\lng L,R,
-  E\rng$, introduced in \cite{NR76} (see also \cite{GRS} p. 119),  denoted by
+  The \emph{$n$-th symmetric power} of a bipartite graph $B=\lng L,R,
+  E\rng$, introduced in \cite{NR76} (see also \cite{GRS} p. 119),
+denoted by
   $B^{(n)}$, is the bipartite graph $\lng L^n, R^n, E^{(n)}\rng$ where
   $\{\bar v, \bar u\}\in E^{(n)}$ iff for all $i<n$ it holds that
   $\{v(i),u(i)\}\in E$.
@@ -537,11 +663,13 @@ E^{(n)}$. Similarly, non-edges are preserved. Clearly, $\bar
 \begin{proof}
   Assume, as in the previous proof, that $B=\lng L,R,E\rng$ has no
   isolated vertices and let $n=HJ(|E|,r^2)$. Given a vertex coloring
-  $c$ of $B^{(n)}$ by $r$ colors, define an edge coloring of $B$ by $r^2$
-  colors by assigning the color $\lng c(e\cap L^n),c(e\cap R^n)\rng$ to an
+  $c$ of $B^{(n)}$ by $r$ colors, define an edge coloring of $B$ by
+$r^2$
+  colors by assigning the color $\lng c(e\cap L^n),c(e\cap R^n)\rng$
+to an
   edge $e\in E^{(n)}$.
 \end{proof}
- 
+
 \section{Discussion}
 Can a smaller upper bound than $(2n2^n)!$ be obtained on the size
 of a graph $Z$ satisfying $G\su^A Z$ where $|G|=n$?  Hrushovski
@@ -549,20 +677,20 @@ of a graph $Z$ satisfying $G\su^A Z$ where $|G|=n$?  Hrushovski
 between subgraphs of $G$ extends to a full automorphism of $Z$,
 an exponential lower bound on $|A|$ in terms of $|G|$ is required.
 
-Hrushovski considers in \cite{H} the case $F=\{f\}$, that is, when one
-is required to implement in $G$ a single partial isomorphism of $H$,
-and proves:
+Hrushovski considers in \cite{H} the case $F=\{f\}$, that is,
+when one is required to implement in $G$ a single arbitrary
+partial isomorphism of $H$, and proves:
 
 \begin{abstheorem} There are constants $c<c'$ so that if one defines
   $g(n)$ to be the least $m$ so that for every graph $H$ with $n$
   vertices and every isomorphism between subgraphs of $H$ there exists
-  a graph $G$ with at most $m$ vertices so that $H\su^{\{f\}}G$, then 
+  a graph $G$ with at most $m$ vertices so that $H\su^{\{f\}}G$, then
 \[c(n\log n)^{1/2}\le \log g(n) \le c'(n\log n)^{1/2}.\]
 \end{abstheorem}
 
 It is interesting to know if an upper bound in the order of magnitude
 of Hrushovski's function $g$ can be found for $G$ in
-$G\ars^{\{f\}}(H)^1_2$, for arbitrary $f$. 
+$G\ars^{\{f\}}(H)^1_2$, for arbitrary $f$.
 
 Considering the fact we have a polynomial upper bound for $|G|$ in
 $G\ars^{P_1}(H)^1_2$ but that, from Hrushovski's theorem, even for a
@@ -577,7 +705,7 @@ $k$.
 Randomly constructed graphs tend to be rigid. Fox and Sudakov
 \cite{FS} recently re-established the upper bound of $2^{cn(\log
   n)^2}$ which was obtained in \cite{KPR} with a randomly constructed
-graph, with the explicit Paley graph, which has quite a few
+graph with the explicit Paley graph, which has quite a few
 automorphisms.  Can one find a better upper bound than the one
 obtained in Theorem \ref{edge}?  Can pseudo-random bipartite graphs be
 used to give a good upper bound for the bipartite graph relation,
@@ -585,7 +713,7 @@ instead of the upper bound coming from the Hales-Jewett theorem.
 
 It is also interesting to find lower bounds for the
 vertex-coloring theorems. Is the $n^r$ bound tight for vertex
-transitive graphs in \ref{P1}? 
+transitive graphs in \ref{P1}?
 
 
 \bigskip
@@ -628,13 +756,28 @@ European J. Combin. 6 (1985), no. 2, 101--114.
     theorems}, preprint.
 
 
-\bibitem{HHLS} W. Hodges, I. Hodkinson, D. Lascar and S. Shelah. {\sl The
+\bibitem{HHLS} W. Hodges, I. Hodkinson, D. Lascar and S. Shelah. {\sl
+The
     small index property for $\omega $-stable, $\omega$-categorical
     structures and the random graph,} J London Math Soc 48 (1993)
     pp. 204-218.
 
+\bibitem{K} M. Kat\v etov. {\sl On universal metric spaces} in:General
+topology and its
+relations to modern analysis and algebra, VI (Prague 1986), Helder-
+mann, Berlin (1988), 323--330.
+
+
 \bibitem{KPR} Y. Kohayakawa, H. Pro\"omel and V. R\"odle. {\sl Induced
     Ramsey numbers,} Combinatorica 18 (1998) pp. 373--404.
+
+\bibitem{KS}  M. Kojman and S. Shelah. {\sl Homogeneous families and
+their
+automorphism groups,} Journal of the London Mathematical Society (2)
+52
+(1995) 303--317
+
+
 
 \bibitem {NR76} J. Ne\v set\v ril and V. R\"odle. {\sl The Ramsey
     Property for Graphs with Forbidden Complete Subgraphs.}
@@ -646,10 +789,11 @@ European J. Combin. 6 (1985), no. 2, 101--114.
 \end{document}
 
 
-NOT TRUE: the vertex transitive graph does not extent the $f$. 
+NOT TRUE: the vertex transitive graph does not extent the $f$.
 
 \begin{theorem} There is a constant $c$ so that for every $r>0$,
-  every graph $H$ with $n$ vertices and every $f\in P(H)$  there exists a graph $G$
+  every graph $H$ with $n$ vertices and every $f\in P(H)$  there
+exists a graph $G$
   with no more than $2^{rc\sqrt{n \log n}}$ vertices so that
 \[G\ars^{\{f\}}(H)^1_r.\]
 \end{theorem}
@@ -657,10 +801,10 @@ NOT TRUE: the vertex transitive graph does not extent the $f$.
 \begin{proof}
 By \cite{H} 3.5, there are constants $c'<c$ so that for every
 sufficiently large $n$, for every  graph
-$H$ 
+$H$
 with $n$ vertices and an isomorphism $f$ between two induced subgraphs
 of $H$ there exists a graph $Z$ with at most $2^{c\sqrt{n \log n}}$
-  such that $H\su^{\{f\}} Z$. 
+  such that $H\su^{\{f\}} Z$.
 
 %HERE!
 By enlarging the constant $c$ we may assume
@@ -669,10 +813,10 @@ By enlarging the constant $c$ we may assume
 
  Now by Lemma \ref{otimes} we
   get a graph $G$ with no more than $2^{rc\sqrt{n \log n}}$ vertices
-  satisfying $G\ars^{\{f\}}(H)^1_r$. 
+  satisfying $G\ars^{\{f\}}(H)^1_r$.
 \end{proof}
 
-Discuss lower bound. 
+Discuss lower bound.
 
 
 
@@ -747,3 +891,4 @@ with $n$ vertices is an induced subgraph of some vertex
 transitive graph $Z$ with no more than $(2n2^n)!$ vertices such
 that every isomorphism between two induced subgraphs of $H$
 extends to an automorphism of $Z$ (in particular, $H\su^A Z$).
+
